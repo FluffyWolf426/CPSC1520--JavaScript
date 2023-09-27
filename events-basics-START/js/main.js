@@ -25,29 +25,4 @@ naitLink.addEventListener("click", (event) => {
 
 //how to start the form from submitting
 
-let form = document.querySelector(".form")
 
-form.addEventListener("submit", (event) => {
-    //prevent the default action from happening
- event.preventDefault()
-})
-
-//part 3
-
-let colourDiv = document.querySelector(".colours")
-colourDiv.addEventListener("click", (event) =>{
-    //here we're going to see that the event.target 
-    //is the most specific element that is being click
-
-    console.log("The event.target is below")
-    console.log(event.target)
-    console.log("We can see the className on the target")  
-    console.log(event.target.className)
-
-    
-    //we can reset the background color or of the element.
-
-    // document.body.style = "background: " + event.target.className
-
-    colourDiv.style = "background: " + event.target.className
-    })
