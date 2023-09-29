@@ -44,5 +44,5 @@ colourDiv.addEventListener("click", (event)=> {
   // based on the class name which is a color of the above.
   // document.body.style = "background: "+ event.target.className
   // if we just wanted to do the colourDiv
-  colourDiv.style = "background: "+ event.target.className
+  colourDiv.style = "background:"+ event.target.className
 })
