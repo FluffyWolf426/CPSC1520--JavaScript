@@ -1,14 +1,44 @@
 // this is our javascript file
 
-// intercept the form and/or required elements
-
+let movieFilterForm = document.querySelector('#movie-filter-form')
 // focus on the filter element
+movieFilterForm.elements["filter-query"].focus()
 
 // select all movie list items the descendant css selector
 // .top-movies-list li
+let allMovieItems = document.querySelectorAll(".top-movies-list li")
+console.log(allMovieItems)
+
+// intercept the form and/or required elements
+movieFilterForm.addEventListener("submit", (event)=>{
+    event.preventDefault()
+    //I want to get the unput element value.
+    let filter = event.target.elements["filter-query"].value
+    console.log(filter)
+
+    //filter the values below
+    filterItems(filter);
+})
 
 // get the form value and call the function filterItems
-
+const filterItems = (filterValue) =>{
+    //make the filter value lower case
+    let lowerCaseFilterValue = filterValue.toLowerCase()
+    //loop through the items
+    allMovieItems.forEach((movieItem)=>{
+        
+    let lowerCaseFlterMovieItem = movieItem.innerText.toLowerCase()
+    if(lowerCaseFlterMovieItem.includes(lowerCaseFilterValue)){
+        //valid
+    movieItem.classList.remove("hidden-item")
+    }
+    else{
+        //invalid
+        movieItem.classList.add("hidden-item")
+    }
+    })
+    //hide them if they are not the same as my filter value.
+}
 /*
 
 We're going to create a function named "filterItems"
