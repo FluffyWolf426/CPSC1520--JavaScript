@@ -24,3 +24,69 @@ We're going to build wordle without the keyboard.
    We're going to create a function that will check this each guess!
 
 */
+
+let wordleForm = document.querySelector("#wordle-form")
+let guess = []
+
+wordleForm.addEventListener("submit", (event) =>{
+event.preventDefault()
+// console.log("wordle form submitted")
+let newGuessInput = event.target.elements["guess"]
+let newGuess = newGuessInput.value
+// console.log(newGuess)
+
+if (isTextFiveChars(newGuess)){
+   //idea case
+newGuessInput.classList.remove('is-invalid')
+}else{
+   //invalid case
+   newGuessInput.classList.add('is-invalid')
+   return //once it hits this nothing below  is executed
+}
+
+//show guess.
+addGuess.apply(newGuess)
+
+wordleForm.reset()
+})
+
+const addGuess=(guess)=>{
+   guesses.push(guess)
+
+   console.log("in addGuess")
+   console.log(guess)
+}
+
+const isTextFiveChars = (guess) =>{
+return guess.length ===5
+   //is the same as below
+   // if (newGuess.length ==5){
+   //    return true
+   // }else{
+   //    return false
+   // }
+}
+
+
+const showGuessOnPage = () =>{
+   //skip the function if there are no guesses
+   if(guesses.length===0){
+      return
+   }
+   //the current guess index is going to be the last item 
+   let guessIndex = guesses.length - 1
+   let currentGuess = guesses[guessIndex]
+   // console.log(`current guess is ${currentGuess}`)
+//build the selector for the guess characters.
+let selector = `.guess-${guessIndex} .guess-character`
+let characterDives = document.querySelector(selector)
+console.log(`currentGuess ${currentGuess}`)
+console.log(`selector is ${selector}`)
+
+
+
+}
+
+//Possible improvements
+//checking if there numbers
+//checking actual a word
