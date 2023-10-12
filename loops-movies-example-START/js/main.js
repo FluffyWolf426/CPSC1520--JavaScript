@@ -20,12 +20,15 @@ movieFilterForm.addEventListener("submit", (event)=>{
     filterItems(filter);
 })
 
-// get the form value and call the function filterItems
 const filterItems = (filterValue) =>{
     //make the filter value lower case
     let lowerCaseFilterValue = filterValue.toLowerCase()
     //loop through the items
-    allMovieItems.forEach((movieItem)=>{
+
+    let movieItemsArray =Array.from(allMovieItems)
+    console.log(movieItemsArray._proto_)
+    
+    movieItemsArray.map((movieItem)=>{
         
     let lowerCaseFlterMovieItem = movieItem.innerText.toLowerCase()
     if(lowerCaseFlterMovieItem.includes(lowerCaseFilterValue)){
@@ -39,6 +42,26 @@ const filterItems = (filterValue) =>{
     })
     //hide them if they are not the same as my filter value.
 }
+
+// get the form value and call the function filterItems
+// const filterItems = (filterValue) =>{
+//     //make the filter value lower case
+//     let lowerCaseFilterValue = filterValue.toLowerCase()
+//     //loop through the items
+//     allMovieItems.forEach((movieItem)=>{
+        
+//     let lowerCaseFlterMovieItem = movieItem.innerText.toLowerCase()
+//     if(lowerCaseFlterMovieItem.includes(lowerCaseFilterValue)){
+//         //valid
+//     movieItem.classList.remove("hidden-item")
+//     }
+//     else{
+//         //invalid
+//         movieItem.classList.add("hidden-item")
+//     }
+//     })
+//     //hide them if they are not the same as my filter value.
+// }
 /*
 
 We're going to create a function named "filterItems"
