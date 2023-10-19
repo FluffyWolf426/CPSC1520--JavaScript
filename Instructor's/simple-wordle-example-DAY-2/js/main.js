@@ -34,6 +34,7 @@ let correctWord = "graph"
 wordleForm.addEventListener("submit", (event)=> {
   event.preventDefault()
   let newGuessInput = event.target.elements["guess"]
+  console.log(newGuessInput)
   let newGuess = newGuessInput.value
   // do a quick validation
   if (isTextFiveChars(newGuess)) {

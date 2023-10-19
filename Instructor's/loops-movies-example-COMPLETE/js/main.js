@@ -18,33 +18,15 @@ movieFilterForm.addEventListener("submit", (event)=> {
   filterItems(filter)
 })
 
-const filterItems = (filterValue) => {
-  let lowerCaseFilterValue = filterValue.toLowerCase()
-  
-  // we're going to convert allMovieItems to an array
-  // so that we can use map.
-  let movieItemsArray = Array.from(allMovieItems)
-  console.log(movieItemsArray.__proto__)
-
-  movieItemsArray.map((movieItem)=>{
-    let lowerCaseMovieItem = movieItem.innerText.toLowerCase()
-    if (lowerCaseMovieItem.includes(lowerCaseFilterValue)){
-      // valid
-      movieItem.classList.remove("hidden-item")
-    } else {
-      // in valid where it is not included
-      movieItem.classList.add("hidden-item")
-    }
-  })
-}
-
-
-// get the form value and call the function filterItems
 // const filterItems = (filterValue) => {
-//   // make the filter value lower case
 //   let lowerCaseFilterValue = filterValue.toLowerCase()
-//   // loop through the items
-//   allMovieItems.forEach((movieItem)=>{
+  
+//   // we're going to convert allMovieItems to an array
+//   // so that we can use map.
+//   let movieItemsArray = Array.from(allMovieItems)
+//   console.log(movieItemsArray.__proto__)
+
+//   movieItemsArray.map((movieItem)=>{
 //     let lowerCaseMovieItem = movieItem.innerText.toLowerCase()
 //     if (lowerCaseMovieItem.includes(lowerCaseFilterValue)){
 //       // valid
@@ -54,8 +36,26 @@ const filterItems = (filterValue) => {
 //       movieItem.classList.add("hidden-item")
 //     }
 //   })
-//   // hide them if they are not the same as my filter value.
 // }
+
+
+// get the form value and call the function filterItems
+const filterItems = (filterValue) => {
+  // make the filter value lower case
+  let lowerCaseFilterValue = filterValue.toLowerCase()
+  // loop through the items
+  allMovieItems.forEach((movieItem)=>{
+    let lowerCaseMovieItem = movieItem.innerText.toLowerCase()
+    if (lowerCaseMovieItem.includes(lowerCaseFilterValue)){
+      // valid
+      movieItem.classList.remove("hidden-item")
+    } else {
+      // in valid where it is not included
+      movieItem.classList.add("hidden-item")
+    }
+  })
+  // hide them if they are not the same as my filter value.
+}
 
 
 
