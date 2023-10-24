@@ -787,4 +787,77 @@ function getAllBooks() {
 }
 
 
+// elements we're going to use
+let tableBody = document.querySelector("#book-rows")
+let bookFilterForm = document.querySelector("#books-filter-form")
+
+//render all books
+
+const renderBooks = (boodList) => {
+tableBody.innerHTML = ""
+
+boodList.forEach((book) => {
+  tableBody.innerHTML += `<tr>
+  <td>${book['bookId']}</td>
+  <td>${book.title}</td>
+  <td>${book.author}</td>
+  <td>${book.rating}</td>
+  <td>${book.numberOfRatings}</td>
+</tr>`
+  
+});
+}
+
+const getAuthors = (boodList) => {
+let authorOnly = boodList.map ((book) => {
+  return book.author
+})
+return authorOnly
+}
+
+//let's get tje distinct authors
+
+authorOnly = authorOnly.filter((author, index)=>{
+  //is the corrent index, the first index of this instance.
+  return authorOnly.index(author) == index
+})
+
+// is the same as diong this a bit more explicitly 
+// if (authorsOnly.indexOf(athor)){
+
+// }
+
+//render the author select options
+const renderAuthorOprions = () =>{
+console.log("renderAuthorOptions")
+  let authorSelect  = bookFilterForm.elements["author"]
+  //get the author
+  let authors = getAuthors(allBooks)
+  console.log(authors)
+  //loop through the author 
+  authors.forEach((athor)=>{
+    authorSelect.innerHTML += `<option value = "${author}">${author}</option>`
+  })
+  // render them as options to my select
+}
+
+bookFilterForm.addEventListener("submit",(event)=>{
+  event.preventDefault()
+  //get all of the books
+  let bookSubset = getAllBooks()
+//get the input values 
+let query = bookFilterForm.elements['filter-query']
+let author = bookFilterForm.elements['author']
+
+//make a new array that is gooing to chick to see if the =input of ittle is in the array
+//we'll do th same for author select 
+})
+//get all the books 
+let allBooks = getAllBooks()
+
+//render the books 
+
+renderBooks(allBooks)
+
+renderAuthorOprions()
 
