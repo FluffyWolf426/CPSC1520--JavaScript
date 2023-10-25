@@ -851,6 +851,10 @@ let author = bookFilterForm.elements['author']
 
 //make a new array that is gooing to chick to see if the =input of ittle is in the array
 //we'll do th same for author select 
+
+if (query.value !== ""){
+  bookSubset = bookSubset.filter(()
+}
 })
 //get all the books 
 let allBooks = getAllBooks()
